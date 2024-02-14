@@ -7,7 +7,7 @@ on:
 permissions:
   contents: write
 
-name: Create Release
+name: Release
 jobs:
   build:
     name: Create Release
@@ -29,8 +29,8 @@ jobs:
       - name: Build package
         run: python -m build
 
-      - name: Create Release
-        id: release
+      - name: Create Github Release
+        id: github_release
         uses: softprops/action-gh-release@v1
         with:
           files: dist/*
