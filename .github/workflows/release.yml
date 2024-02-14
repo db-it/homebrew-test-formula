@@ -29,11 +29,20 @@ jobs:
       - name: Build package
         run: python -m build
 
+      - name: Generate Asset Hashes
+        # https://github.com/MCJack123/ghaction-Generate-Release-Hashes
+        uses: MCJack123/ghaction-generate-release-hashes@v2
+        with:
+          hash-type: sha256
+          file-name: asset-hashes.txt
+
       - name: Create Github Release
         id: github_release
         # https://github.com/softprops/action-gh-release
         uses: softprops/action-gh-release@v1
         with:
-          files: dist/*
+          files: |
+            dist/*
+            asset-hashes.txt
           fail_on_unmatched_files: true
           token: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
