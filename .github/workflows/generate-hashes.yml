@@ -1,9 +1,8 @@
-name: Generate sha256 hashes for release assets
-
 on:
   release:
     types: [published]
 
+name: Generate hashes for release assets
 jobs:
   build:
     runs-on: ubuntu-latest
