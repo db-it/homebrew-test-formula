@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 import sys
+from datetime import datetime
 
 
 if __name__ == '__main__':
-    print(f'testformula, args: {sys.argv[1:]}')
+    print(f'{datetime.utcnow().isoformat()} testformula, args: {sys.argv[1:]}')
